@@ -1,0 +1,23 @@
+---
+- name: Allow wheel group to sudo without a password
+  lineinfile:
+    dest: /etc/sudoers
+    state: present
+    regexp: '^%wheel'
+    line: '%wheel ALL=(ALL) NOPASSWD: ALL'
+    validate: visudo -cf %s
+
+- name: Enable sudo I/O (in)
+  lineinfile:
+    dest: /etc/sudoers
+    state: present
+    line: 'Defaults log_input'
+    validate: visudo -cf %s
+
+- name: Enable sudo I/O (out)
+  lineinfile:
+    dest: /etc/sudoers
+    state: present
+    line: 'Defaults log_output'
+    validate: visudo -cf %s
+

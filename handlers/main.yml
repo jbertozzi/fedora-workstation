@@ -1,0 +1,9 @@
+---
+# handlers file for fedora-workstation
+- name: restart autofs
+  service:
+    name: autofs
+    state: restarted
+
+- name: systemctl daemon-reload
+  command: systemctl daemon-reload

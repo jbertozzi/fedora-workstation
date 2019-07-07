@@ -1,0 +1,28 @@
+---
+# vars file for fedora-workstation
+fedora_workstation_packages:
+  - VirtualBox
+  - autofs
+  - buildah
+  - copr-cli
+  - curl
+  - dnf-utils
+  - fedora-packager
+  - flash-plugin
+  - gnome-shell-extension-dash-to-dock
+  - gnome-shell-extension-extended-gestures
+  - gnome-tweaks
+  - hostname
+  - openvpn
+  - mozilla-openh264
+  - podman
+  - rcm
+  - rpmdevtools
+  - samba-client
+  - skopeo
+  - strace
+  - tmux
+  - tmux-powerline
+  - vim-enhanced
+  - vlc
+  - wget

@@ -1,0 +1,21 @@
+---
+
+- name: add cifs config /etc/auto.master
+  lineinfile:
+    state: present
+    line: /cifs  /etc/auto.smb --timeout=300 vers=1.0
+    path: /etc/auto.master
+  notify: restart autofs
+
+- name: start and enable autofs service
+  service:
+    name: autofs
+    state: started
+    enabled: true
+
+- name: create symlink for the NAS
+  file:
+    src: "/cifs/freebox/Disque dur"
+    dest: /freebox
+    state: link
+

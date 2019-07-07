@@ -1,0 +1,11 @@
+---
+- name: Update all pacakges
+  dnf:
+    name: '*'
+    state: latest
+
+- name: Install packages
+  dnf:
+    name: "{{ fedora_workstation_packages }}"
+    state: installed
+

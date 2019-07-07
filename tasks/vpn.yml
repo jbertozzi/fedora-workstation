@@ -1,0 +1,16 @@
+---
+- name: Deploy nordvpn systemd template unit
+  copy:
+    src: vpn@.service
+    dest: /etc/systemd/system/vpn@.service
+    owner: root
+    group: root
+    mode: 0644
+  notify: systemctl daemon-reload
+
+- name: Retrieve NordVPN configuration files
+  unarchive:
+    src: https://downloads.nordcdn.com/configs/archives/servers/ovpn.zip
+    dest: /etc/openvpn/client/
+    creates: /etc/openvpn/client/ovpn_tcp
+

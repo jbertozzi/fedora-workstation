@@ -1,0 +1,23 @@
+---
+- name: create user {{ item }}
+  user:
+    name: "{{ item }}"
+    groups: 
+      - wheel
+    create_home: true
+    generate_ssh_key: true
+    ssh_key_bits: 2048
+
+- name: Get dotfiles
+  git:
+    repo: https://github.com/{{ item }}/dotfiles
+    clone: true
+    dest: /home/{{ item }}/.dotfiles
+  become: true
+  become_user: "{{ item }}"
+
+- name: update rc file
+  shell: rcup -v -f
+  become: true
+  become_user: "{{ item }}"
+
