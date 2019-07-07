@@ -1,29 +1,27 @@
 ---
 # tasks file for fedora-workstation
 
-- include_tasks: repositories.yml
+- import_tasks: repositories.yml
   tags:
     - repositories
 
-- include_tasks: packages.yml
+- import_tasks: packages.yml
   tags:
     - packages
 
-- include_tasks: users.yml
-  when: fedora_workstation_users is defined
-  with_items: "{{ fedora_workstation_users }}"
+- import_tasks: user.yml
   tags:
-   - users
+   - user
 
-- include_tasks: sudo.yml
+- import_tasks: sudo.yml
   tags:
     - sudo
 
-- include_tasks: autofs.yml
+- import_tasks: autofs.yml
   tags:
     - autofs
 
-- include_tasks: vpn.yml
+- import_tasks: vpn.yml
   tags:
     - vpn
 

@@ -6,7 +6,7 @@ The role will setup GNOME with a few extensions (including one from COPR build b
 
 ## Role Variables
 
-fedora_workstation_users: list of user to create. Those users will be part of the wheel group, and their dotfiles retrieve from github.com/<user>/dotfiles.
+fedora_workstation_user: user to create. This user will be part of the wheel group, and its dotfiles retrieved from github.com/<user>/dotfiles.
 
 
 ## Example Playbook
@@ -16,8 +16,7 @@ fedora_workstation_users: list of user to create. Those users will be part of th
   roles:
     - role: fedora-workstation
       vars:
-        fedora_workstation_users:
-          - jbertozzi
+        fedora_workstation_user:
 ```
 
 ## License

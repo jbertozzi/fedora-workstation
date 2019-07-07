@@ -1,0 +1,25 @@
+---
+- name: create user {{ fedora_workstation_user }}
+  user:
+    name: "{{ fedora_workstation_user }}"
+    groups: 
+      - wheel
+    create_home: true
+    generate_ssh_key: true
+    ssh_key_bits: 2048
+
+- name: Get dotfiles
+  git:
+    repo: https://github.com/{{ fedora_workstation_user }}/dotfiles
+    clone: true
+    dest: /home/{{ fedora_workstation_user }}/.dotfiles
+  become: true
+  become_user: "{{ fedora_workstation_user }}"
+
+- name: update rc file
+  shell: rcup -v -f
+  become: true
+  become_user: "{{ fedora_workstation_user }}"
+  register: c
+  changed_when: '"->" in c.stdout'
+

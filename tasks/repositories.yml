@@ -1,10 +1,4 @@
 ---
-- name: enable jbertozzi's COPR repository
-  command: dnf copr enable jbertozzi/gnome-shell-extensions -y
-
-- name: enable cisco openh264 repository
-  command: dnf config-manager --set-enabled fedora-cisco-openh264
-
 #dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 - name: enable rpmfusion repositories
   dnf:
@@ -18,4 +12,19 @@
     state: present
     name:  http://linuxdownload.adobe.com/adobe-release/adobe-release-x86_64-1.0-1.noarch.rpm
     disable_gpg_check: true
-    
+
+- name: enable cisco openh264 repository
+  yum_repository:
+    name: fedora-cisco-openh264
+    description: Fedora $releasever openh264 (From Cisco) - $basearch
+    enabled: true
+    gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
+    baseurl: https://codecs.fedoraproject.org/openh264/$releasever/$basearch/
+
+- name: enable jbertozzi COPR repository
+  yum_repository:
+    name: jbertozzi-gnome-shell-extensions
+    description: Copr repo for gnome-shell-extensions owned by jbertozzi
+    baseurl: https://copr-be.cloud.fedoraproject.org/results/jbertozzi/gnome-shell-extensions/fedora-$releasever-$basearch/
+    enabled: true
+    gpgkey: https://copr-be.cloud.fedoraproject.org/results/jbertozzi/gnome-shell-extensions/pubkey.gpg

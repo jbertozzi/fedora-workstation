@@ -14,3 +14,12 @@
     dest: /etc/openvpn/client/
     creates: /etc/openvpn/client/ovpn_tcp
 
+- name: creates empty .vpncreds file
+  copy:
+    content: "username\npassword"
+    dest: /etc/openvpn/client/.vpncreds
+    owner: root
+    group: root
+    mode: 0600
+    force: false
+
