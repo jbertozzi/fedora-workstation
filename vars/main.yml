@@ -1,6 +1,7 @@
 ---
 # vars file for fedora-workstation
 fedora_workstation_packages:
+  - "@GNOME Desktop Environment"
   - VirtualBox
   - autofs
   - buildah
