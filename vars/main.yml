@@ -14,8 +14,8 @@ fedora_workstation_packages:
   - gnome-shell-extension-extended-gestures
   - gnome-tweaks
   - hostname
-  - openvpn
   - mozilla-openh264
+  - openvpn
   - podman
   - rcm
   - rpmdevtools
@@ -24,6 +24,7 @@ fedora_workstation_packages:
   - strace
   - tmux
   - tmux-powerline
+  - transmission
   - vim-enhanced
   - vlc
   - wget
