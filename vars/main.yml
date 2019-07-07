@@ -5,6 +5,7 @@ fedora_workstation_packages:
   - VirtualBox
   - autofs
   - buildah
+  - cifs-utils
   - copr-cli
   - curl
   - dnf-utils

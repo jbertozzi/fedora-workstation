@@ -23,3 +23,12 @@
   register: c
   changed_when: '"->" in c.stdout'
 
+- name: Get default runlevel
+  command: systemctl get-default
+  register: runlevel
+  changed_when: false
+
+- name: Enable graphical target
+  command: systemctl set-default graphical.target
+  when: "'graphical.target' not in runlevel.stdout"
+

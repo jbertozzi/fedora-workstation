@@ -13,6 +13,7 @@
     src: https://downloads.nordcdn.com/configs/archives/servers/ovpn.zip
     dest: /etc/openvpn/client/
     creates: /etc/openvpn/client/ovpn_tcp
+    remote_src: true
 
 - name: creates empty .vpncreds file
   copy:
