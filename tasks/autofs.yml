@@ -3,7 +3,7 @@
 - name: add cifs config /etc/auto.master
   lineinfile:
     state: present
-    line: /cifs  /etc/auto.smb --timeout=300 vers=1.0
+    line: /cifs  /etc/auto.smb --timeout=300 vers=1.0,uid=1000,gid=1000
     path: /etc/auto.master
   notify: restart autofs
 
