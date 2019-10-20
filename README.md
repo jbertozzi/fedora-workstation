@@ -16,7 +16,7 @@ fedora_workstation_user: user to create. This user will be part of the wheel gro
   roles:
     - role: fedora-workstation
       vars:
-        fedora_workstation_user:
+        fedora_workstation_user: jbertozzi
 ```
 
 ## License
